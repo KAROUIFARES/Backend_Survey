@@ -1,0 +1,904 @@
+[
+  {
+    "question": {
+      "QuestionRank": 1,
+      "ReponseType": "radio",
+      "questions": "Avez-vous déjà acheté sur Internet ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "oui",
+        "Value": 0
+      },
+      {
+        "Label": "non",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 2,
+      "ReponseType": "radio",
+      "questions": "A quelle fréquence approximativement effectuez-vous vos achats en ligne ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Plusieurs fois par semaine",
+        "Value": 0
+      },
+      {
+        "Label": "1 fois par semaine",
+        "Value": 0
+      },
+      {
+        "Label": "1 fois par mois",
+        "Value": 0
+      },
+      {
+        "Label": "1 fois tous les 3 mois",
+        "Value": 0
+      },
+      {
+        "Label": "1 fois tous les 6 mois",
+        "Value": 0
+      },
+      {
+        "Label": "1 fois/an ou moins",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 3,
+      "ReponseType": "checkbox",
+      "questions": "Quels types de produits achetez-vous sur Internet ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Produits alimentaires",
+        "Value": 0
+      },
+      {
+        "Label": "Droguerie et produits de nettoyage",
+        "Value": 0
+      },
+      {
+        "Label": "Produits paramédicaux",
+        "Value": 0
+      },
+      {
+        "Label": "Textile & Habillement",
+        "Value": 0
+      },
+      {
+        "Label": "Chaussures, cuir et maroquinerie",
+        "Value": 0
+      },
+      {
+        "Label": "Bijoux, horlogerie, optique",
+        "Value": 0
+      },
+      {
+        "Label": "Meubles & décoration",
+        "Value": 0
+      },
+      {
+        "Label": "Électroménager",
+        "Value": 0
+      },
+      {
+        "Label": "Prestations et produits de beauté",
+        "Value": 0
+      },
+      {
+        "Label": "Recharge Téléphone",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 4,
+      "ReponseType": "radio",
+      "questions": "En moyenne combien dépensez-vous par mois pour vos achats sur internet?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "< 50 TND",
+        "Value": 0
+      },
+      {
+        "Label": "[50-100[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "[100-150[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "[150-250[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "[250-500[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "500 TND et +",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 5,
+      "ReponseType": "checkbox",
+      "questions": "Sur quel interface/canal électronique achetez-vous ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Sites web des commerçants",
+        "Value": 0
+      },
+      {
+        "Label": "Places de marché (regroupant plusieurs vendeurs)",
+        "Value": 0
+      },
+      {
+        "Label": "Des plateformes de deals",
+        "Value": 0
+      },
+      {
+        "Label": "Des plateformes d'annonces",
+        "Value": 0
+      },
+      {
+        "Label": "Médias sociaux (Page/groupe Facebook, Instagram, WhatsApp, Messenger, etc.)",
+        "Value": 0
+      },
+      {
+        "Label": "Télé Achat",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 6,
+      "ReponseType": "checkbox",
+      "questions": "Sur quel support achetez-vous en ligne habituellement ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Ordinateur (bureau, portable)",
+        "Value": 0
+      },
+      {
+        "Label": "Smartphone",
+        "Value": 0
+      },
+      {
+        "Label": "Tablette",
+        "Value": 0
+      },
+      {
+        "Label": "Smart TV",
+        "Value": 0
+      },
+      {
+        "Label": "Autre",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 7,
+      "ReponseType": "checkbox",
+      "questions": "Quel mode de paiement utilisez-vous pour régler vos achats sur Internet ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Paiement à la commande",
+        "Value": 0
+      },
+      {
+        "Label": "Paiement à la livraison",
+        "Value": 0
+      }
+    ],
+    "sinario": [
+      {
+        "condition": [
+          "Paiement à la commande"
+        ],
+        "QuestionRankEliminate": [
+          8,
+          9
+        ],
+        "NextQuestionRank": -1
+      },
+      {
+        "condition": [
+          "Paiement à la livraison"
+        ],
+        "QuestionRankEliminate": [
+          10
+        ],
+        "NextQuestionRank": -1
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 8,
+      "ReponseType": "checkbox",
+      "questions": "Pour quelle raison vous payez à la livraison ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Manque de confiance dans le site/le commerçant",
+        "Value": 0
+      },
+      {
+        "Label": "Manque de confiance dans le système de paiement",
+        "Value": 0
+      },
+      {
+        "Label": "Pas de carte bancaire /Pas de carte de la Poste",
+        "Value": 0
+      },
+      {
+        "Label": "Autre",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 9,
+      "ReponseType": "checkbox",
+      "questions": "Pour vos règlements à la livraison de vos achats en ligne, quels moyens de paiement utilisez-vous ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Argent liquide (espèces)",
+        "Value": 0
+      },
+      {
+        "Label": "Chèque",
+        "Value": 0
+      },
+      {
+        "Label": "Carte bancaire (TPE)",
+        "Value": 0
+      },
+      {
+        "Label": "Carte de la poste (TPE)",
+        "Value": 0
+      },
+      {
+        "Label": "Mobile",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 10,
+      "ReponseType": "checkbox",
+      "questions": "Pour vos règlements à la commande de vos achats en ligne, quels moyens de paiement utilisez-vous ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Carte",
+        "Value": 0
+      },
+      {
+        "Label": "Carte de la poste",
+        "Value": 0
+      },
+      {
+        "Label": "Virement bancaire",
+        "Value": 0
+      },
+      {
+        "Label": "Mandat postal",
+        "Value": 0
+      },
+      {
+        "Label": "Versement d'espèces",
+        "Value": 0
+      },
+      {
+        "Label": "E-wallet",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 11,
+      "ReponseType": "checkbox",
+      "questions": "Quels sont les modes de livraison que vous préférez ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Carte",
+        "Value": 0
+      },
+      {
+        "Label": "Carte de la poste",
+        "Value": 0
+      },
+      {
+        "Label": "Virement bancaire",
+        "Value": 0
+      },
+      {
+        "Label": "Par poste (bureau de poste)",
+        "Value": 0
+      },
+      {
+        "Label": "Par poste (à domicile)",
+        "Value": 0
+      },
+      {
+        "Label": "Livreur privé (à domicile/ travail)",
+        "Value": 0
+      },
+      {
+        "Label": "Livreur du vendeur (à domicile/ travail)",
+        "Value": 0
+      },
+      {
+        "Label": "Drive ou Point relais (récupérer votre commande en magasin ou emplacement prédéfini)",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 12,
+      "ReponseType": "checkbox",
+      "questions": "Quels sont d’après vous les critères les plus importants pour faire vos achats en ligne ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Clarté du site",
+        "Value": 0
+      },
+      {
+        "Label": "Largesse du choix des produits",
+        "Value": 0
+      },
+      {
+        "Label": "Attractivité des prix",
+        "Value": 0
+      },
+      {
+        "Label": "Flexibilité, personnalisation",
+        "Value": 0
+      },
+      {
+        "Label": "Transparence des conditions de ventes",
+        "Value": 0
+      },
+      {
+        "Label": "Délais de livraisons courts",
+        "Value": 0
+      },
+      {
+        "Label": "Possibilité de retourner les produits/contacter le vendeur",
+        "Value": 0
+      },
+      {
+        "Label": "Sécurité du paiement",
+        "Value": 0
+      },
+      {
+        "Label": "Protection des données personnelles",
+        "Value": 0
+      },
+      {
+        "Label": "Les avis des clients (lorsqu'ils sont disponibles)",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 13,
+      "ReponseType": "checkbox",
+      "questions": "D’après-vous, qu’est-ce qui freine le plus l’achat en ligne ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Manque de protection des consommateurs (qualité, droit à la réparation et dommage, droit à la garantie, etc.)",
+        "Value": 0
+      },
+      {
+        "Label": "Manque de protection des données à caractère personnel",
+        "Value": 0
+      },
+      {
+        "Label": "Manque de protection contre la cybercriminalité",
+        "Value": 0
+      },
+      {
+        "Label": "Faible sécurisation des systèmes de paiement",
+        "Value": 0
+      },
+      {
+        "Label": "Les informations concernant la législation du e-commerce ne sont pas accessibles",
+        "Value": 0
+      },
+      {
+        "Label": "L'offre de biens et de services en ligne est insuffisante",
+        "Value": 0
+      },
+      {
+        "Label": "L'achat en ligne est difficile et compliqué",
+        "Value": 0
+      },
+      {
+        "Label": "Les achats en ligne sont coûteux (Coûts associés aux achats en ligne)",
+        "Value": 0
+      },
+      {
+        "Label": "Les solutions de paiements ne sont pas offertes par tous les marchands",
+        "Value": 0
+      },
+      {
+        "Label": "Les solutions de paiements sont peu conviviales (les solutions de paiements sont limitées)",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 14,
+      "ReponseType": "radio",
+      "questions": "Êtes-Vous ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Homme",
+        "Value": 0
+      },
+      {
+        "Label": "Femme",
+        "Value": 0
+      }
+    ],
+    "sinario": []
+  },
+  {
+    "question": {
+      "QuestionRank": 15,
+      "ReponseType": "radio",
+      "questions": "Quel est votre tranche âge ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Moins de 15 ans",
+        "Value": 0
+      },
+      {
+        "Label": "[15-19] ans",
+        "Value": 0
+      },
+      {
+        "Label": "[20-24] ans",
+        "Value": 0
+      },
+      {
+        "Label": "[25-29] ans",
+        "Value": 0
+      },
+      {
+        "Label": "[30-39] ans",
+        "Value": 0
+      },
+      {
+        "Label": "[40-49] ans",
+        "Value": 0
+      },
+      {
+        "Label": "[50-59] ans",
+        "Value": 0
+      },
+      {
+        "Label": "[60-69] ans",
+        "Value": 0
+      },
+      {
+        "Label": "70 ans et +",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 16,
+      "ReponseType": "radio",
+      "questions": "Quel est votre statut ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Etudiant, élève",
+        "Value": 0
+      },
+      {
+        "Label": "Employé",
+        "Value": 0
+      },
+      {
+        "Label": "Cadre supérieur",
+        "Value": 0
+      },
+      {
+        "Label": "Profession libérale",
+        "Value": 0
+      },
+      {
+        "Label": "Chef d’entreprise",
+        "Value": 0
+      },
+      {
+        "Label": "Retraité",
+        "Value": 0
+      },
+      {
+        "Label": "Femme au foyer",
+        "Value": 0
+      },
+      {
+        "Label": "Autre",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 17,
+      "ReponseType": "radio",
+      "questions": "Quel est votre dernier diplôme obtenu ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Aucun diplôme",
+        "Value": 0
+      },
+      {
+        "Label": "Niveau secondaire",
+        "Value": 0
+      },
+      {
+        "Label": "Baccalauréat",
+        "Value": 0
+      },
+      {
+        "Label": "Licences et ou technicien supérieur",
+        "Value": 0
+      },
+      {
+        "Label": "Master (Bac + 5)",
+        "Value": 0
+      },
+      {
+        "Label": "Plus que Master (Sup à Bac +5)",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 18,
+      "ReponseType": "radio",
+      "questions": "Quelle est votre revenu mensuel approximatif ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "< 500 TND",
+        "Value": 0
+      },
+      {
+        "Label": "[500-1000[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "[1000-1500[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "[1500-2000[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "[2000-2500[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "[2500-5000[ TND",
+        "Value": 0
+      },
+      {
+        "Label": "5000 TND et plus",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 19,
+      "ReponseType": "checkbox",
+      "questions": "De quels moyens de paiement disposez-vous ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Une carte bancaire",
+        "Value": 0
+      },
+      {
+        "Label": "Un chéquier",
+        "Value": 0
+      },
+      {
+        "Label": "Une carte de la poste",
+        "Value": 0
+      },
+      {
+        "Label": "Aucun moyen",
+        "Value": 0
+      },
+      {
+        "Label": "Autre",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "question": {
+      "QuestionRank": 20,
+      "ReponseType": "select",
+      "questions": "Quel est votre lieu de résidence ?",
+      "nbreponse": 0
+    },
+    "response": [
+      {
+        "Label": "Tunis",
+        "Value": 0
+      },
+      {
+        "Label": "Ariana",
+        "Value": 0
+      },
+      {
+        "Label": "Ben Arous",
+        "Value": 0
+      },
+      {
+        "Label": "Manouba",
+        "Value": 0
+      },
+      {
+        "Label": "Nabeul",
+        "Value": 0
+      },
+      {
+        "Label": "Zaghouan",
+        "Value": 0
+      },
+      {
+        "Label": "Bizerte",
+        "Value": 0
+      },
+      {
+        "Label": "Béja",
+        "Value": 0
+      },
+      {
+        "Label": "Jendouba",
+        "Value": 0
+      },
+      {
+        "Label": "Le Kef",
+        "Value": 0
+      },
+      {
+        "Label": "Siliana",
+        "Value": 0
+      },
+      {
+        "Label": "Kairouan",
+        "Value": 0
+      },
+      {
+        "Label": "Kasserine",
+        "Value": 0
+      },
+      {
+        "Label": "Sidi Bouzid",
+        "Value": 0
+      },
+      {
+        "Label": "Sousse",
+        "Value": 0
+      },
+      {
+        "Label": "Monastir",
+        "Value": 0
+      },
+      {
+        "Label": "Mahdia",
+        "Value": 0
+      },
+      {
+        "Label": "Sfax",
+        "Value": 0
+      },
+      {
+        "Label": "Gafsa",
+        "Value": 0
+      },
+      {
+        "Label": "Tozeur",
+        "Value": 0
+      },
+      {
+        "Label": "Kébili",
+        "Value": 0
+      },
+      {
+        "Label": "Gabès",
+        "Value": 0
+      },
+      {
+        "Label": "Medenine",
+        "Value": 0
+      },
+      {
+        "Label": "Tataouine",
+        "Value": 0
+      },
+      {
+        "Label": "Allemagne",
+        "Value": 0
+      },
+      {
+        "Label": "Belgique",
+        "Value": 0
+      },
+      {
+        "Label": "Canada",
+        "Value": 0
+      },
+      {
+        "Label": "États-Unis",
+        "Value": 0
+      },
+      {
+        "Label": "France",
+        "Value": 0
+      },
+      {
+        "Label": "Italie",
+        "Value": 0
+      },
+      {
+        "Label": "Royaume-Uni",
+        "Value": 0
+      },
+      {
+        "Label": "Suisse",
+        "Value": 0
+      },
+      {
+        "Label": "Espagne",
+        "Value": 0
+      },
+      {
+        "Label": "Portugal",
+        "Value": 0
+      },
+      {
+        "Label": "Pays-Bas",
+        "Value": 0
+      },
+      {
+        "Label": "Suède",
+        "Value": 0
+      },
+      {
+        "Label": "Norvège",
+        "Value": 0
+      },
+      {
+        "Label": "Danemark",
+        "Value": 0
+      },
+      {
+        "Label": "Finlande",
+        "Value": 0
+      },
+      {
+        "Label": "Grèce",
+        "Value": 0
+      },
+      {
+        "Label": "Japon",
+        "Value": 0
+      },
+      {
+        "Label": "Corée du Sud",
+        "Value": 0
+      },
+      {
+        "Label": "Chine",
+        "Value": 0
+      },
+      {
+        "Label": "Inde",
+        "Value": 0
+      },
+      {
+        "Label": "Brésil",
+        "Value": 0
+      },
+      {
+        "Label": "Argentine",
+        "Value": 0
+      },
+      {
+        "Label": "Mexique",
+        "Value": 0
+      },
+      {
+        "Label": "Russie",
+        "Value": 0
+      },
+      {
+        "Label": "Afrique du Sud",
+        "Value": 0
+      },
+      {
+        "Label": "Australie",
+        "Value": 0
+      },
+      {
+        "Label": "Nouvelle-Zélande",
+        "Value": 0
+      },
+      {
+        "Label": "Maroc",
+        "Value": 0
+      },
+      {
+        "Label": "Égypte",
+        "Value": 0
+      }
+    ]
+  }
+]
