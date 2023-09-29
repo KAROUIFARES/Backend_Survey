@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "SurveyTitle": "BAROMETRE DU E-COMMERCE EN TUNISIE",
+    "CompanyName": "mdSoft",
+    "State": true,
+    "CreatedDate": "2023-09-29",
+    "nbVague": 0
+  },
+  {
+    "SurveyTitle": "sasas",
+    "CompanyName": "sasas",
+    "State": false,
+    "CreatedDate": "2023-09-29T20:49:49.222Z",
+    "nbVague": 0
+  }
+]
