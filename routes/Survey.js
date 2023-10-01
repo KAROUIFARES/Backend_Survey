@@ -7,40 +7,52 @@ const app = express.Router();
 const DataFolderPath = './Data/';
 
 app.use(express.json()); // Parse JSON request body
-async function deleteDirectory(dirPath) {
-  try {
+async function deleteDirectory(dirPath)
+{
+  try
+  {
     await fs.rmdir(dirPath, { recursive: true }); // Recursively delete the directory and its contents
     console.log(`Directory ${dirPath} deleted successfully.`);
-  } catch (err) {
+  } catch (err)
+  {
     console.error(`Error deleting directory ${dirPath}:`, err);
   }
 }
 
 
-app.put('/UpdateSurveyState', async (req, res) => {
-  try {
+app.put('/UpdateSurveyState', async (req, res) =>
+{
+  try
+  {
     const SurveyTitle = req.body.SurveyTitle;
     const surveyState = req.body.SurveyState;
     const filePath = path.join(DataFolderPath, 'Allsurvey.json');
     const data = await fs.readFile(filePath, 'utf8');
     const SurveyList = JSON.parse(data);
     const index = SurveyList.findIndex((item) => item.SurveyTitle === SurveyTitle);
-    if (index !== -1) {
+    if (index !== -1)
+    {
       SurveyList[index].State = surveyState;
       await fs.writeFile(filePath, JSON.stringify(SurveyList, null, 2), 'utf8');
 
-      res.status(200).json({ success: true, message: 'Survey state updated successfully'});
-    } else {
+      res.status(200).json({ success: true, message: 'Survey state updated successfully' });
+    } else
+    {
       res.status(404).json({ success: false, message: 'Survey not found' });
     }
-  } catch (err) {
+  } catch (err)
+  {
     console.error(err);
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
 
-app.delete('/DeleteSurvey', async (req, res) => {
-  try {
+
+
+app.delete('/DeleteSurvey', async (req, res) =>
+{
+  try
+  {
     const SurveyTitle = req.body.SurveyTitle;
     const AllsurveyFilePath = path.join(DataFolderPath, 'Allsurvey.json');
     const directoryPath = path.join(DataFolderPath, SurveyTitle);
@@ -51,7 +63,8 @@ app.delete('/DeleteSurvey', async (req, res) => {
     // Find the survey index by SurveyTitle
     const index = existingSurveysData.findIndex((item) => item.SurveyTitle === SurveyTitle);
 
-    if (index !== -1) {
+    if (index !== -1)
+    {
       // Remove the survey from the list
       existingSurveysData.splice(index, 1);
 
@@ -62,10 +75,12 @@ app.delete('/DeleteSurvey', async (req, res) => {
       await deleteDirectory(directoryPath);
 
       res.status(200).json({ message: 'Survey deleted successfully.' });
-    } else {
+    } else
+    {
       res.status(404).json({ error: 'Survey not found' });
     }
-  } catch (err) {
+  } catch (err)
+  {
     console.error('Error deleting survey:', err);
     res.status(500).json({ error: 'Failed to delete survey' });
   }
@@ -102,20 +117,49 @@ app.post('/InsertQuestion', async (req, res) =>
   {
     const SurveyTitle = req.body.SurveyTitle;
     const Data = req.body.QuestionList;
+    const sinario = req.body.sinario
 
-    if (!SurveyTitle || !Data)
+    if (!SurveyTitle || !Data || !sinario)
     {
       return res.status(400).json({ error: 'SurveyTitle and Data are required fields.' });
     }
+
     const surveyFolderPath = path.join(DataFolderPath, SurveyTitle);
+    const sinarioFilePath = path.join(surveyFolderPath, 'sinario.json');
     const fileName = path.join(surveyFolderPath, 'Question.json');
     await fs.writeFile(fileName, JSON.stringify(Data, null, 2));
+    await fs.writeFile(sinarioFilePath, JSON.stringify(sinario, null, 2));
     res.status(200).json({ message: 'Question data saved successfully.' });
   } catch (error)
   {
     console.error('Error inserting question:', error);
     res.status(500).json({ error: 'An error occurred while processing the request.' });
   }
+});
+
+app.get('/getQuestion', (req, res) =>
+{
+  const SurveyTitle = req.body.SurveyTitle;
+  const filePath = path.join(DataFolderPath, SurveyTitle, 'Question.json');
+
+  fs.readFile(filePath, 'utf8')
+    .then(data =>
+    {
+      try
+      {
+        const questionData = JSON.parse(data);
+        res.status(200).json(questionData);
+      } catch (parseError)
+      {
+        console.error('Error parsing JSON:', parseError);
+        res.status(500).json({ error: 'Failed to parse JSON data.' });
+      }
+    })
+    .catch(err =>
+    {
+      console.error('Error reading file:', err);
+      res.status(500).json({ error: 'Failed to read the file.' });
+    });
 });
 
 
@@ -182,14 +226,16 @@ app.post('/Createvague', async (req, res) =>
   const SurveyTitle = req.body.SurveyTitle;
   const filePath = path.join(DataFolderPath, SurveyTitle);
   const DashbordFilePath = path.join(filePath, 'Dash0.json');
-  const SurveyFilePath = path.join(filePath, 'survey.json');
+  const SurveyFilePath = path.join(DataFolderPath, 'Allsurvey.json');
+
   fs.readFile(SurveyFilePath, 'utf8').then(data =>
   {
     try
     {
       const surveyData = JSON.parse(data);
-      const vague = 'Vague' + (surveyData.nbVague + 1).toString();
-      surveyData.nbVague++
+      const index=surveyData.findIndex(item=>item.SurveyTitle===SurveyTitle)
+      const vague = 'Vague' + (surveyData[index].nbVague + 1).toString();
+      surveyData[index].nbVague++
       fs.writeFile(SurveyFilePath, JSON.stringify(surveyData, null, 2));
 
       const VagueFolderPath = path.join(filePath, vague);
@@ -206,6 +252,13 @@ app.post('/Createvague', async (req, res) =>
       const UserResponseFilePath = path.join(VagueFolderPath, 'UserResponse.json');
       fs.writeFile(UserResponseFilePath, '[]');
 
+      const EssaiResponseFilePath = path.join(VagueFolderPath, 'Essai.json');
+      fs.writeFile(EssaiResponseFilePath, '[]');
+
+
+     
+
+
       res.status(200).json({ message: 'Vague Created successfully' })
     } catch (parseError)
     {
@@ -217,7 +270,7 @@ app.post('/Createvague', async (req, res) =>
 
 app.get('/getSurvyes', (req, res) =>
 {
-  const filePath = path.join(DataFolderPath,'Allsurvey.json');
+  const filePath = path.join(DataFolderPath, 'Allsurvey.json');
 
   fs.readFile(filePath, 'utf8')
     .then(data =>
